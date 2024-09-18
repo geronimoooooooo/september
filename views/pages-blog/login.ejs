@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head><%- include ('../partials/head', {titlePage:"xXx"}) %></head>
+
+  <body class="container">       
+    <header><%- include ('../partials/header') %></header>  
+    <nav><%- include ('../partials/nav') %></nav>
+    <main>    
+    
+      <h1>form</h1>
+
+
+      <form action="/blogs/login" method="post">
+          <input type="text" name="username" id="username" required>
+          <input type="password" name="password" id="password" required>
+          <input type="submit" value="Submit">
+      </form>
+      <!-- In any EJS template -->
+<% if (isAuthenticated) { %>
+  <p>You are logged in!</p>
+<% } else { %>
+  <p>You are not logged in.</p>
+<% } %>
+  
+      <p>hello</p>
+      <% if (isAuthenticated) { %>
+          <%- include('../success') %>
+      <% } else { %>
+          <%- include('../failure') %>
+      <% } %>    
+      
+    </main>      
+    <footer><%- include('../partials/footer') %></footer>    
+  </body>
+</html>

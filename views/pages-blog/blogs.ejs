@@ -1,0 +1,23 @@
+	<%- include('../partials/head', {titlePage:"blog"}) %>
+
+  <body class="container">       
+    <nav><%- include('../partials/nav') %></nav>
+    <header><%- include('../partials/header') %></header>  
+    <main>    
+
+      <!-- In any EJS template -->
+<% if (isAuthenticated) { %>
+  <p>You are logged in!</p>
+<% } else { %>
+  <p>You are not logged in.</p>
+<% } %>
+      
+      <ul>
+        <% blogPosts.forEach(blog => { %>
+          <li><a href="/blogs/pages-blog/<%= blog.id %>"><%= blog.title %></a></li>
+        <% }) %>
+      </ul>
+    </main>      
+    <footer><%- include('../partials/footer') %></footer>    
+  </body>
+</html>
