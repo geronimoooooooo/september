@@ -1,6 +1,7 @@
 //import express from 'express'
 const express = require('express');
 const path = require('path');
+const session = require('express-session');
 const routesTodo = require('./routes/todo.routes.js');
 const routesFormSuccessFailure = require('./routes/form.routes.js');
 const routesBlog = require('./routes/blogs.routes.js');
@@ -10,8 +11,15 @@ const app = express();
 // const hostname = '127.0.0.1';
 const port = process.env.PORT || 1337
 
-// Middleware to parse JSON
+// Initialize the session middleware
+app.use(session({
+    secret: 'yourSecretKey', // Replace with your own secret
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }  // Set to true if using HTTPS
+}));
 
+// Middleware to parse JSON
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine','ejs');
 // Set the 'views' folder as the root for EJS templates
