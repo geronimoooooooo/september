@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
     console.log('/ '+ res.locals.isAuthenticated);
     isAuthenticated = res.locals.isAuthenticated;
     // console.log('/ ' + isAuthenticated);
-    showPosts();
+    
     res.render('pages-blog/blogs', {blogPosts, isAuthenticated: isAuthenticated});
 });
 

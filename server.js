@@ -33,6 +33,12 @@ app.get('/' , (req , res)=>{
    res.send('hello from simple server :)')
 })
 
+console.log(new Date().toISOString() + ", "+Date.now());
+
+
+app.get('/*bc*/', (req, res)=>{
+    res.send('/bc/ called');
+});
 app.listen(port, ()=>{    
     console.log(`browse this url http://localhost:${port}`)
 });
